@@ -1,0 +1,3 @@
+[gd_scene format=3]
+
+[node name="Bobber" type="Node2D"]

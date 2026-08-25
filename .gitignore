@@ -1,0 +1,10 @@
+.godot/
+/android/
+
+# macOS
+.DS_Store
+
+# Exported builds
+/build/
+/export/
+*.zip
