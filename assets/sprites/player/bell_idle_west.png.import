@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b0sl8qkvbvpci"
-path="res://.godot/imported/tree_placeholder.png-3cb0d2c631351d6fce5f68fd7cc519ba.ctex"
+uid="uid://c1cleiwxn87ok"
+path="res://.godot/imported/bell_idle_west.png-13d580ffc0aaba688c9a4e6bf8cb11a3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/props/tree_placeholder.png"
-dest_files=["res://.godot/imported/tree_placeholder.png-3cb0d2c631351d6fce5f68fd7cc519ba.ctex"]
+source_file="res://assets/sprites/player/bell_idle_west.png"
+dest_files=["res://.godot/imported/bell_idle_west.png-13d580ffc0aaba688c9a4e6bf8cb11a3.ctex"]
 
 [params]
 

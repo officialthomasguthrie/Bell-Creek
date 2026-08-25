@@ -1,18 +1,28 @@
 extends CharacterBody2D
 
-@export var move_speed: float = 90.0
+const DIRECTION_NAMES := ["east", "south_east", "south", "south_west", "west", "north_west", "north", "north_east"]
+
+@export var move_speed: float = 120.0
 
 var can_move: bool = true
-
 var last_direction: Vector2 = Vector2.DOWN
 
-@onready var sprite = $Sprite2D
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var fishing: Node2D = $FishingComponent
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("cast"):
+		fishing.on_cast_pressed()
 
 
 func _physics_process(_delta: float) -> void:
+	can_move = not fishing.is_busy()
+
 	if not can_move:
 		velocity = Vector2.ZERO
 		move_and_slide()
+		_update_animation(Vector2.ZERO)
 		return
 
 	var direction := Input.get_vector("move_left", "move_right", "move_up", "move_down")
@@ -27,21 +37,22 @@ func _physics_process(_delta: float) -> void:
 
 
 func _update_animation(direction: Vector2) -> void:
-	var moving := direction != Vector2.ZERO
-	var facing := last_direction
+	var facing := _direction_name(last_direction)
+	var prefix := "walk" if direction != Vector2.ZERO else "idle"
+	if fishing != null:
+		var fishing_prefix: String = fishing.animation_prefix()
+		if fishing_prefix != "":
+			prefix = fishing_prefix
 
-	if absf(facing.x) > absf(facing.y):
-		sprite.flip_h = facing.x < 0.0
-		_play("walk_side" if moving else "idle_side")
-	elif facing.y < 0.0:
-		sprite.flip_h = false
-		_play("walk_up" if moving else "idle_up")
-	else:
-		sprite.flip_h = false
-		_play("walk_down" if moving else "idle_down")
+	var anim := "%s_%s" % [prefix, facing]
+	if not sprite.sprite_frames.has_animation(anim):
+		anim = "idle_%s" % facing
+
+	if sprite.animation != anim:
+		sprite.play(anim)
+	elif not sprite.is_playing() and sprite.sprite_frames.get_animation_loop(anim):
+		sprite.play(anim)
 
 
-func _play(anim_name: String) -> void:
-	if sprite is AnimatedSprite2D and sprite.sprite_frames != null:
-		if sprite.sprite_frames.has_animation(anim_name) and sprite.animation != anim_name:
-			sprite.play(anim_name)
+func _direction_name(direction: Vector2) -> String:
+	return DIRECTION_NAMES[posmod(roundi(direction.angle() / (PI / 4.0)), 8)]

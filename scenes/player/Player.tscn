@@ -1,28 +1,39 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=9 format=3]
 
 [ext_resource type="Script" uid="uid://bn73ucx2iyc8x" path="res://scenes/player/player.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/sprites/player/bell_placeholder.png" id="2_bell"]
+[ext_resource type="SpriteFrames" path="res://assets/sprites/player/bell_frames.tres" id="2_frames"]
+[ext_resource type="Script" path="res://scenes/player/fishing_component.gd" id="3_fish"]
+[ext_resource type="Resource" path="res://data/fish/creek_minnow.tres" id="4_f1"]
+[ext_resource type="Resource" path="res://data/fish/orchard_trout.tres" id="5_f2"]
+[ext_resource type="Resource" path="res://data/fish/speckled_perch.tres" id="6_f3"]
+[ext_resource type="Resource" path="res://data/fish/golden_bream.tres" id="7_f4"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_feet"]
-radius = 5.0
-height = 12.0
+radius = 7.0
+height = 16.0
 
 [node name="Player" type="CharacterBody2D"]
 y_sort_enabled = true
 script = ExtResource("1_script")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_bell")
-offset = Vector2(0, -12)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_frames")
+animation = &"idle_south"
+autoplay = "idle_south"
+offset = Vector2(0, -22)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_feet")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_left = -416
-limit_top = -316
-limit_right = 416
-limit_bottom = 316
+limit_left = 32
+limit_top = 32
+limit_right = 2048
+limit_bottom = 1280
 position_smoothing_enabled = true
 position_smoothing_speed = 5.0
+
+[node name="FishingComponent" type="Node2D" parent="."]
+script = ExtResource("3_fish")
+fish_table = Array[Resource]([ExtResource("4_f1"), ExtResource("5_f2"), ExtResource("6_f3"), ExtResource("7_f4")])

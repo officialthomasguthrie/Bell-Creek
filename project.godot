@@ -27,9 +27,14 @@ AudioManager="*uid://bq74qlsde4u2j"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
-window/size/window_width_override=1280
-window/size/window_height_override=720
+window/size/window_width_override=1920
+window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
+window/stretch/scale_mode="integer"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/pixellab_stack_paint/plugin.cfg")
 
 [input]
 

@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/fish_data.gd" id="1_fish"]
+
+[resource]
+script = ExtResource("1_fish")
+display_name = "Golden Bream"
+value = 75
+rarity_weight = 0.4
+difficulty = 2.2
+tint = Color(0.92, 0.76, 0.28, 1)

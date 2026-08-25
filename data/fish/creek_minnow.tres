@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/fish_data.gd" id="1_fish"]
+
+[resource]
+script = ExtResource("1_fish")
+display_name = "Creek Minnow"
+value = 8
+rarity_weight = 4.0
+difficulty = 0.6
+tint = Color(0.72, 0.78, 0.82, 1)

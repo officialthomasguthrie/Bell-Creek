@@ -1,0 +1,57 @@
+{
+  "version": "1.0.0",
+  "name": "Untitled Map",
+  "exportDate": "2026-08-25T07:14:02.494532Z",
+  "engine": "pixellab-map-editor",
+  "mapConfig": {
+    "tileSize": 32,
+    "dimensions": {
+      "width": 64,
+      "height": 40,
+      "pixelWidth": 2048,
+      "pixelHeight": 1280
+    },
+    "boundingBox": {
+      "maxX": 53,
+      "maxY": 39,
+      "minX": -10,
+      "minY": 0
+    }
+  },
+  "terrains": [
+    {
+      "id": 1,
+      "name": "clear shallow creek water with gentle ripples, soft tonal variation, and a pale sandy bottom",
+      "color": "#2563eb",
+      "baseTileId": "ca87eb41-57ea-433b-847f-486981100250",
+      "walkable": null
+    },
+    {
+      "id": 2,
+      "name": "lush green creek grass featuring moderate texture, gentle colour variation, darker blades, and tiny yellow wildflowers",
+      "color": "#22c55e",
+      "baseTileId": "7b16fe39-3ae6-4808-8fae-6f4a7ce34211",
+      "walkable": null
+    }
+  ],
+  "tilesets": [
+    {
+      "id": "7d952c74-3840-4564-a794-c977de854909",
+      "filename": "clear shallow creek water with gentle ripples, soft tonal variation, and a pale sandy bottom-lush green creek grass featuring moderate texture, gentle colour variation, darker blades, and tiny yellow.png",
+      "lowerTerrain": "clear shallow creek water with gentle ripples, soft tonal variation, and a pale sandy bottom",
+      "upperTerrain": "lush green creek grass featuring moderate texture, gentle colour variation, darker blades, and tiny yellow wildflowers",
+      "lowerTerrainId": 1,
+      "upperTerrainId": 2,
+      "transitionSize": 0.25,
+      "transitionDescription": "thin mossy earth bank drop with soft shadows, exposed roots, wet pebbles, and a damp waterline",
+      "tileSize": 32,
+      "gridLayout": "4x4",
+      "wangIndexMapping": "standard",
+      "view": "high top-down",
+      "metadataFilename": "7d952c74-3840-4564-a794-c977de854909.json"
+    }
+  ],
+  "overlays": [],
+  "background": null,
+  "mapId": "2aa77f74-732c-499c-9c41-a3ab48177a95"
+}

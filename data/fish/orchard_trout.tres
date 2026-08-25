@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="FishData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/fish_data.gd" id="1_fish"]
+
+[resource]
+script = ExtResource("1_fish")
+display_name = "Orchard Trout"
+value = 18
+rarity_weight = 2.5
+difficulty = 1.0
+tint = Color(0.55, 0.62, 0.42, 1)

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr2dy5t81qbfs"
-path="res://.godot/imported/bell_placeholder.png-321d646ea16697fc7b5ae6efe44900be.ctex"
+uid="uid://bcfjuy3f8oxgu"
+path="res://.godot/imported/bell_cast_south_east.png-80df3e3c382630cfb20b0395a7bc89e1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/player/bell_placeholder.png"
-dest_files=["res://.godot/imported/bell_placeholder.png-321d646ea16697fc7b5ae6efe44900be.ctex"]
+source_file="res://assets/sprites/player/bell_cast_south_east.png"
+dest_files=["res://.godot/imported/bell_cast_south_east.png-80df3e3c382630cfb20b0395a7bc89e1.ctex"]
 
 [params]
 
