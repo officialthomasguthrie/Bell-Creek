@@ -11,13 +11,24 @@ config_version=5
 [application]
 
 config/name="Bell Creek"
-config/features=PackedStringArray("4.6", "Forward Plus")
+run/main_scene="res://scenes/areas/Area01Orchard.tscn"
+config/features=PackedStringArray("4.6", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameState="*uid://br2fthb12wvhg"
+SaveSystem="*uid://bwdbg8e4p42ou"
+SceneLoader="*uid://d314udmvo5vgy"
+AudioManager="*uid://bq74qlsde4u2j"
 
 [display]
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/window_width_override=1280
+window/size/window_height_override=720
 window/stretch/mode="canvas_items"
 
 [input]
@@ -96,6 +107,7 @@ slot_4={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 2d/snap/snap_2d_transforms_to_pixel=true
