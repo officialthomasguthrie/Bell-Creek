@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LineData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/line_data.gd" id="1_s"]
+
+[resource]
+script = ExtResource("1_s")
+display_name = "Frayed Twine"
+description = "Old twine from the shed. Breaks pretty easily."
+price = 0
+tier = 0
+strength = 1.5
+steadiness = 1.0

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RodData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/rod_data.gd" id="1_s"]
+
+[resource]
+script = ExtResource("1_s")
+display_name = "Bamboo Rod"
+description = "Light bamboo, bends a lot. Easier to use than the stick."
+price = 150
+tier = 1
+catch_zone = 1.2
+reel_power = 1.15
+bite_speed = 0.9

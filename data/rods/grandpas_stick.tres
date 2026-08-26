@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="RodData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/rod_data.gd" id="1_s"]
+
+[resource]
+script = ExtResource("1_s")
+display_name = "Grandpa's Stick"
+description = "A branch with string tied to the end. It's what you start with."
+price = 0
+tier = 0
+catch_zone = 1.0
+reel_power = 1.0
+bite_speed = 1.0

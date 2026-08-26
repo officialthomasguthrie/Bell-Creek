@@ -1,0 +1,140 @@
+{
+  "group_id": "63ea2cb4-f3c3-4254-a91e-516f27307281",
+  "states": [
+    {
+      "character": {
+        "id": "c44f5faa-a089-493b-a9c3-c56269573253",
+        "name": "Idle",
+        "prompt": "seagull standing",
+        "size": {
+          "width": 48,
+          "height": 48
+        },
+        "template_id": "mannequin",
+        "directions": 8,
+        "view": "low top-down",
+        "created_at": "2026-08-26T08:23:40.555381+00:00"
+      },
+      "folder": "Idle",
+      "frames": {
+        "rotations": {
+          "south": "Idle/rotations/south.png",
+          "south-east": "Idle/rotations/south-east.png",
+          "east": "Idle/rotations/east.png",
+          "north-east": "Idle/rotations/north-east.png",
+          "north": "Idle/rotations/north.png",
+          "north-west": "Idle/rotations/north-west.png",
+          "west": "Idle/rotations/west.png",
+          "south-west": "Idle/rotations/south-west.png"
+        },
+        "animations": {
+          "Jumping_pecking_around_like_a_seagull": {
+            "south": [
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south/frame_000.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south/frame_001.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south/frame_002.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south/frame_003.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south/frame_004.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south/frame_005.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south/frame_006.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south/frame_007.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south/frame_008.png"
+            ],
+            "south-west": [
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-west/frame_000.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-west/frame_001.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-west/frame_002.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-west/frame_003.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-west/frame_004.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-west/frame_005.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-west/frame_006.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-west/frame_007.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-west/frame_008.png"
+            ],
+            "north": [
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north/frame_000.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north/frame_001.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north/frame_002.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north/frame_003.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north/frame_004.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north/frame_005.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north/frame_006.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north/frame_007.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north/frame_008.png"
+            ],
+            "south-east": [
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-east/frame_000.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-east/frame_001.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-east/frame_002.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-east/frame_003.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-east/frame_004.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-east/frame_005.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-east/frame_006.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-east/frame_007.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/south-east/frame_008.png"
+            ],
+            "north-east": [
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-east/frame_000.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-east/frame_001.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-east/frame_002.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-east/frame_003.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-east/frame_004.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-east/frame_005.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-east/frame_006.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-east/frame_007.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-east/frame_008.png"
+            ],
+            "west": [
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/west/frame_000.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/west/frame_001.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/west/frame_002.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/west/frame_003.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/west/frame_004.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/west/frame_005.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/west/frame_006.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/west/frame_007.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/west/frame_008.png"
+            ],
+            "north-west": [
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-west/frame_000.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-west/frame_001.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-west/frame_002.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-west/frame_003.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-west/frame_004.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-west/frame_005.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-west/frame_006.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-west/frame_007.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/north-west/frame_008.png"
+            ],
+            "east": [
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/east/frame_000.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/east/frame_001.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/east/frame_002.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/east/frame_003.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/east/frame_004.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/east/frame_005.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/east/frame_006.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/east/frame_007.png",
+              "Idle/animations/Jumping_pecking_around_like_a_seagull/east/frame_008.png"
+            ]
+          },
+          "transitioning_from_a_still_position_to_starting_to": {
+            "south": [
+              "Idle/animations/transitioning_from_a_still_position_to_starting_to/south/frame_000.png",
+              "Idle/animations/transitioning_from_a_still_position_to_starting_to/south/frame_001.png",
+              "Idle/animations/transitioning_from_a_still_position_to_starting_to/south/frame_002.png",
+              "Idle/animations/transitioning_from_a_still_position_to_starting_to/south/frame_003.png",
+              "Idle/animations/transitioning_from_a_still_position_to_starting_to/south/frame_004.png",
+              "Idle/animations/transitioning_from_a_still_position_to_starting_to/south/frame_005.png",
+              "Idle/animations/transitioning_from_a_still_position_to_starting_to/south/frame_006.png",
+              "Idle/animations/transitioning_from_a_still_position_to_starting_to/south/frame_007.png",
+              "Idle/animations/transitioning_from_a_still_position_to_starting_to/south/frame_008.png"
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "export_version": "3.1",
+  "export_date": "2026-08-26T08:55:14.085732"
+}

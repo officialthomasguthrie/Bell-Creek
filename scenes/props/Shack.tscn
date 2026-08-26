@@ -24,3 +24,4 @@ position = Vector2(0, -40)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractZone"]
 shape = SubResource("RectangleShape2D_zone")
+

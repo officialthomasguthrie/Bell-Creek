@@ -1,16 +1,24 @@
-[gd_scene format=4 uid="uid://dad4yw6ylbeom"]
+[gd_scene format=4]
 
-[ext_resource type="Script" uid="uid://dwrl0rkc8afiy" path="res://scenes/areas/area.gd" id="1_script"]
-[ext_resource type="Script" uid="uid://c7hj0byf15jdo" path="res://scripts/pixellab_map_builder.gd" id="2_d17e3"]
+[ext_resource type="Script" path="res://scenes/areas/area.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/pixellab_map_builder.gd" id="2_d17e3"]
 [ext_resource type="PackedScene" path="res://scenes/player/Player.tscn" id="2_player"]
-[ext_resource type="TileSet" uid="uid://seybvo24lfkm" path="res://pixellab/creek_map_tileset.tres" id="3_4f0uk"]
-[ext_resource type="Texture2D" uid="uid://kesuneoiqu36" path="res://pixellab/source/objects/474d222a-f25b-432a-8c82-555cb5476faf.png" id="7_d17e3"]
-[ext_resource type="Texture2D" uid="uid://cqceqcai8epuc" path="res://pixellab/source/objects/d346da34-27de-41a2-9708-a9c8979410e4.png" id="8_4f0uk"]
+[ext_resource type="TileSet" path="res://pixellab/creek_map_tileset.tres" id="3_4f0uk"]
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="5_q2p2c"]
+[ext_resource type="Script" path="res://scenes/props/shack.gd" id="7_atpgq"]
+[ext_resource type="Texture2D" path="res://pixellab/source/objects/474d222a-f25b-432a-8c82-555cb5476faf.png" id="7_d17e3"]
+[ext_resource type="Texture2D" path="res://pixellab/source/objects/d346da34-27de-41a2-9708-a9c8979410e4.png" id="8_4f0uk"]
 [ext_resource type="PackedScene" path="res://scenes/ui/HUD.tscn" id="9_hud"]
 [ext_resource type="PackedScene" path="res://scenes/props/Shack.tscn" id="10_shack"]
 [ext_resource type="PackedScene" path="res://scenes/props/Boat.tscn" id="11_5yunc"]
 [ext_resource type="PackedScene" path="res://scenes/props/Bus.tscn" id="11_bus"]
+[ext_resource type="Script" path="res://scenes/props/boat.gd" id="12_shp63"]
 [ext_resource type="PackedScene" path="res://scenes/props/BusDriver.tscn" id="13_t0e6m"]
+[ext_resource type="PackedScene" path="res://scenes/props/ShackSign.tscn" id="14_sign"]
+[ext_resource type="Script" path="res://scenes/props/bus_driver.gd" id="14_t0e6m"]
+[ext_resource type="PackedScene" path="res://scenes/enemies/Seagull.tscn" id="16_6ipm4"]
+[ext_resource type="Script" path="res://scenes/enemies/seagull.gd" id="17_hklpa"]
+[ext_resource type="Script" path="res://scenes/ui/hud.gd" id="19_osy2r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_docis"]
 size = Vector2(2048, 32)
@@ -30,14 +38,8 @@ size = Vector2(137, 4)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_q2p2c"]
 size = Vector2(137, 4)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_atpgq"]
-size = Vector2(4, 75)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shp63"]
 size = Vector2(4, 75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_t0e6m"]
-size = Vector2(51, 4)
 
 [node name="Area01Orchard" type="Node2D" unique_id=848038909]
 y_sort_enabled = true
@@ -58,13 +60,18 @@ metadata/pixellab_dual_grid_terrain = true
 [node name="YSort" type="Node2D" parent="." unique_id=2093751756]
 y_sort_enabled = true
 
-[node name="Player" parent="YSort" unique_id=1818875583 instance=ExtResource("2_player")]
+[node name="Player" type="CharacterBody2D" parent="YSort" unique_id=1818875583 instance=ExtResource("2_player")]
+y_sort_enabled = true
 position = Vector2(1072, 666)
+script = ExtResource("5_q2p2c")
 
-[node name="Shack" parent="YSort" unique_id=67808378 instance=ExtResource("10_shack")]
+[node name="Shack" type="StaticBody2D" parent="YSort" unique_id=67808378 instance=ExtResource("10_shack")]
+y_sort_enabled = true
 position = Vector2(371, 574)
+script = ExtResource("7_atpgq")
 
-[node name="Bus" parent="YSort" unique_id=1314473856 instance=ExtResource("11_bus")]
+[node name="Bus" type="StaticBody2D" parent="YSort" unique_id=1314473856 instance=ExtResource("11_bus")]
+y_sort_enabled = true
 position = Vector2(1640.0001, 667.00006)
 scale = Vector2(1.3, 1.3)
 
@@ -81,14 +88,73 @@ position = Vector2(1108.5, 540)
 texture = ExtResource("8_4f0uk")
 offset = Vector2(0, -37.5)
 
-[node name="Boat" parent="YSort" unique_id=1029532633 instance=ExtResource("11_5yunc")]
+[node name="Boat" type="CharacterBody2D" parent="YSort" unique_id=1029532633 instance=ExtResource("11_5yunc")]
+y_sort_enabled = true
 position = Vector2(1164, 528)
 scale = Vector2(1.5, 1.5)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("12_shp63")
 
-[node name="BusDriver" parent="YSort" unique_id=893111401 instance=ExtResource("13_t0e6m")]
+[node name="BusDriver" type="StaticBody2D" parent="YSort" unique_id=893111401 instance=ExtResource("13_t0e6m")]
+y_sort_enabled = true
 position = Vector2(1766.0001, 673.00006)
+script = ExtResource("14_t0e6m")
 
-[node name="HUD" parent="." unique_id=1159031484 instance=ExtResource("9_hud")]
+[node name="ShackSign" type="StaticBody2D" parent="YSort" unique_id=205875962 instance=ExtResource("14_sign")]
+y_sort_enabled = true
+position = Vector2(972, 596)
+
+[node name="Seagull1" type="CharacterBody2D" parent="YSort" unique_id=445602293 instance=ExtResource("16_6ipm4")]
+y_sort_enabled = true
+position = Vector2(1680, 822)
+collision_layer = 0
+script = ExtResource("17_hklpa")
+
+[node name="Seagull2" type="CharacterBody2D" parent="YSort" unique_id=942483680 instance=ExtResource("16_6ipm4")]
+y_sort_enabled = true
+position = Vector2(1488, 278)
+collision_layer = 0
+script = ExtResource("17_hklpa")
+
+[node name="Seagull3" type="CharacterBody2D" parent="YSort" unique_id=1506869029 instance=ExtResource("16_6ipm4")]
+y_sort_enabled = true
+position = Vector2(1008, 662)
+collision_layer = 0
+script = ExtResource("17_hklpa")
+
+[node name="Seagull4" type="CharacterBody2D" parent="YSort" unique_id=74160156 instance=ExtResource("16_6ipm4")]
+y_sort_enabled = true
+position = Vector2(528, 1046)
+collision_layer = 0
+script = ExtResource("17_hklpa")
+
+[node name="Seagull5" type="CharacterBody2D" parent="YSort" unique_id=1734894772 instance=ExtResource("16_6ipm4")]
+y_sort_enabled = true
+position = Vector2(368, 438)
+collision_layer = 0
+script = ExtResource("17_hklpa")
+
+[node name="Seagull6" type="CharacterBody2D" parent="YSort" unique_id=117368489 instance=ExtResource("16_6ipm4")]
+y_sort_enabled = true
+position = Vector2(1648, 534)
+collision_layer = 0
+script = ExtResource("17_hklpa")
+
+[node name="Seagull7" type="CharacterBody2D" parent="YSort" unique_id=1050197999 instance=ExtResource("16_6ipm4")]
+y_sort_enabled = true
+position = Vector2(1936, 662)
+collision_layer = 0
+script = ExtResource("17_hklpa")
+
+[node name="Seagull8" type="CharacterBody2D" parent="YSort" unique_id=1326654823 instance=ExtResource("16_6ipm4")]
+y_sort_enabled = true
+position = Vector2(1104, 950)
+collision_layer = 0
+script = ExtResource("17_hklpa")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1159031484 instance=ExtResource("9_hud")]
+script = ExtResource("19_osy2r")
 
 [node name="Walls" type="StaticBody2D" parent="." unique_id=855256770]
 
@@ -118,14 +184,9 @@ shape = SubResource("RectangleShape2D_nrxxd")
 position = Vector2(1358, 668)
 shape = SubResource("RectangleShape2D_q2p2c")
 
-[node name="Deck_pier_left" type="CollisionShape2D" parent="ObjectRails" unique_id=1403823238]
-position = Vector2(1085, 502.5)
-shape = SubResource("RectangleShape2D_atpgq")
-
 [node name="Deck_pier_right" type="CollisionShape2D" parent="ObjectRails" unique_id=1838274923]
-position = Vector2(1132, 502.5)
+position = Vector2(1143, 503)
 shape = SubResource("RectangleShape2D_shp63")
 
-[node name="Deck_pier_end" type="CollisionShape2D" parent="ObjectRails" unique_id=1275929409]
-position = Vector2(1108.5, 542)
-shape = SubResource("RectangleShape2D_t0e6m")
+[node name="ShackDoor" type="Marker2D" parent="." unique_id=523721792]
+position = Vector2(371, 620)

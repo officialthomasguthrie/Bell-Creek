@@ -1,0 +1,118 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/ui/shop_panel.gd" id="1_shop"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.086, 0.106, 0.098, 0.97)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.83, 0.72, 0.5, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[node name="ShopPanel" type="CanvasLayer"]
+layer = 3
+script = ExtResource("1_shop")
+
+[node name="Root" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Centre" type="CenterContainer" parent="Root"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Panel" type="PanelContainer" parent="Root/Centre"]
+custom_minimum_size = Vector2(360, 196)
+size_flags_vertical = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Root/Centre/Panel"]
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 3
+
+[node name="Rows" type="VBoxContainer" parent="Root/Centre/Panel/Margin"]
+theme_override_constants/separation = 5
+
+[node name="Header" type="HBoxContainer" parent="Root/Centre/Panel/Margin/Rows"]
+
+[node name="Title" type="Label" parent="Root/Centre/Panel/Margin/Rows/Header"]
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 0.86, 0.45, 1)
+theme_override_font_sizes/font_size = 11
+text = "Shop"
+
+[node name="Money" type="Label" parent="Root/Centre/Panel/Margin/Rows/Header"]
+theme_override_colors/font_color = Color(1, 0.86, 0.45, 1)
+theme_override_font_sizes/font_size = 11
+text = "$0"
+
+[node name="Tabs" type="HBoxContainer" parent="Root/Centre/Panel/Margin/Rows"]
+theme_override_constants/separation = 4
+
+[node name="Body" type="HBoxContainer" parent="Root/Centre/Panel/Margin/Rows"]
+size_flags_vertical = 6
+theme_override_constants/separation = 6
+
+[node name="LeftArrow" type="Label" parent="Root/Centre/Panel/Margin/Rows/Body"]
+custom_minimum_size = Vector2(14, 0)
+theme_override_colors/font_color = Color(1, 0.86, 0.45, 1)
+theme_override_font_sizes/font_size = 16
+text = "<"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Showcase" type="VBoxContainer" parent="Root/Centre/Panel/Margin/Rows/Body"]
+custom_minimum_size = Vector2(96, 0)
+theme_override_constants/separation = 2
+
+[node name="Art" type="TextureRect" parent="Root/Centre/Panel/Margin/Rows/Body/Showcase"]
+custom_minimum_size = Vector2(96, 96)
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Counter" type="Label" parent="Root/Centre/Panel/Margin/Rows/Body/Showcase"]
+theme_override_colors/font_color = Color(0.55, 0.58, 0.55, 1)
+theme_override_font_sizes/font_size = 7
+horizontal_alignment = 1
+
+[node name="Detail" type="VBoxContainer" parent="Root/Centre/Panel/Margin/Rows/Body"]
+custom_minimum_size = Vector2(198, 0)
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="ItemName" type="Label" parent="Root/Centre/Panel/Margin/Rows/Body/Detail"]
+theme_override_colors/font_color = Color(0.96, 0.96, 0.92, 1)
+theme_override_font_sizes/font_size = 11
+
+[node name="Price" type="Label" parent="Root/Centre/Panel/Margin/Rows/Body/Detail"]
+theme_override_font_sizes/font_size = 9
+
+[node name="Desc" type="Label" parent="Root/Centre/Panel/Margin/Rows/Body/Detail"]
+custom_minimum_size = Vector2(198, 40)
+max_lines_visible = 3
+clip_text = true
+theme_override_colors/font_color = Color(0.68, 0.72, 0.68, 1)
+theme_override_font_sizes/font_size = 8
+autowrap_mode = 3
+
+[node name="Stats" type="Label" parent="Root/Centre/Panel/Margin/Rows/Body/Detail"]
+custom_minimum_size = Vector2(198, 34)
+theme_override_colors/font_color = Color(0.74, 0.8, 0.76, 1)
+theme_override_font_sizes/font_size = 8
+
+[node name="RightArrow" type="Label" parent="Root/Centre/Panel/Margin/Rows/Body"]
+custom_minimum_size = Vector2(14, 0)
+theme_override_colors/font_color = Color(1, 0.86, 0.45, 1)
+theme_override_font_sizes/font_size = 16
+text = ">"
+horizontal_alignment = 1
+vertical_alignment = 1

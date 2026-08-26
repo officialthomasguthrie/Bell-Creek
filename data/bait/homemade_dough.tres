@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BaitData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/bait_data.gd" id="1_s"]
+
+[resource]
+script = ExtResource("1_s")
+display_name = "Homemade Dough"
+description = "Flour and water. Cheap, and there's a lot of it."
+price = 5
+rarity_pull = 0.0
+casts = 12

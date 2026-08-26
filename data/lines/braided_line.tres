@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="LineData" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/line_data.gd" id="1_s"]
+
+[resource]
+script = ExtResource("1_s")
+display_name = "Braided Line"
+description = "Braided and waxed, holds bigger fish."
+price = 180
+tier = 1
+strength = 2.2
+steadiness = 0.9
