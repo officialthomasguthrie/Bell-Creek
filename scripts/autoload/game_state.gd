@@ -8,6 +8,7 @@ var money: int = 0
 var capacity: int = 8
 var backpack: Array = []
 var has_ticket: bool = false
+var dialogue_open: bool = false
 
 func add_fish(fish: Resource) -> bool:
 	if backpack.size() >= capacity:

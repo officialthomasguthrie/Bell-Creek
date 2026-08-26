@@ -32,7 +32,7 @@ func _prompt() -> void:
 	GameState.say("Press E to sell %d fish for $%d" % [count, worth])
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not _player_near:
+	if not _player_near or GameState.dialogue_open:
 		return
 	if not event.is_action_pressed("interact"):
 		return

@@ -14,12 +14,14 @@ var last_direction: Vector2 = Vector2.DOWN
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if GameState.dialogue_open:
+		return
 	if event.is_action_pressed("cast"):
 		fishing.on_cast_pressed()
 
 
 func _physics_process(_delta: float) -> void:
-	can_move = not fishing.is_busy() and not riding
+	can_move = not fishing.is_busy() and not riding and not GameState.dialogue_open
 
 	if riding:
 		velocity = Vector2.ZERO

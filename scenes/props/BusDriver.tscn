@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scenes/props/bus_driver.gd" id="1_drv"]
 [ext_resource type="SpriteFrames" path="res://assets/sprites/props/driver_frames.tres" id="2_frames"]
-[ext_resource type="PackedScene" path="res://scenes/ui/DialogueBox.tscn" id="3_dlg"]
+[ext_resource type="PackedScene" path="res://scenes/ui/SpeechBubble.tscn" id="3_bub"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_body"]
 radius = 7.0
@@ -31,4 +31,5 @@ position = Vector2(0, -12)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractZone"]
 shape = SubResource("CircleShape2D_zone")
 
-[node name="DialogueBox" parent="." instance=ExtResource("3_dlg")]
+[node name="SpeechBubble" parent="." instance=ExtResource("3_bub")]
+position = Vector2(0, -46)

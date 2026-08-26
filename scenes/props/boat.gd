@@ -36,6 +36,8 @@ func _on_exited(body: Node2D) -> void:
 		_near = false
 
 func _unhandled_input(event: InputEvent) -> void:
+	if GameState.dialogue_open:
+		return
 	if not event.is_action_pressed("interact"):
 		return
 	if occupied:
@@ -45,6 +47,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 func _physics_process(delta: float) -> void:
 	if not occupied:
+		return
+
+	if GameState.dialogue_open:
+		velocity = Vector2.ZERO
 		return
 
 	if _rider != null and _rider.fishing.is_busy():
