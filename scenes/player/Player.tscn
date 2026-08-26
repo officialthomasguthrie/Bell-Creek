@@ -27,10 +27,10 @@ position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_feet")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-limit_left = 32
+limit_left = 64
 limit_top = 32
 limit_right = 2048
-limit_bottom = 1280
+limit_bottom = 1248
 position_smoothing_enabled = true
 position_smoothing_speed = 5.0
 

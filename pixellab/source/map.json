@@ -1,21 +1,21 @@
 {
   "version": "1.0.0",
   "name": "Untitled Map",
-  "exportDate": "2026-08-25T07:14:02.494532Z",
+  "exportDate": "2026-08-26T04:19:27.752590Z",
   "engine": "pixellab-map-editor",
   "mapConfig": {
     "tileSize": 32,
     "dimensions": {
-      "width": 64,
-      "height": 40,
-      "pixelWidth": 2048,
-      "pixelHeight": 1280
+      "width": 66,
+      "height": 39,
+      "pixelWidth": 2112,
+      "pixelHeight": 1248
     },
     "boundingBox": {
-      "maxX": 53,
-      "maxY": 39,
-      "minX": -10,
-      "minY": 0
+      "maxX": 63,
+      "maxY": 37,
+      "minX": -2,
+      "minY": -1
     }
   },
   "terrains": [
@@ -53,5 +53,5 @@
   ],
   "overlays": [],
   "background": null,
-  "mapId": "2aa77f74-732c-499c-9c41-a3ab48177a95"
+  "mapId": "c8eaa122-a0aa-4579-bf0b-1b3d24a67b91"
 }

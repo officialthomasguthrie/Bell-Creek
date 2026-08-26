@@ -1,0 +1,56 @@
+{
+  "version": "1.0.0",
+  "totalObjects": 2,
+  "objects": [
+    {
+      "id": "474d222a-f25b-432a-8c82-555cb5476faf",
+      "name": "Object 0",
+      "filename": "474d222a-f25b-432a-8c82-555cb5476faf.png",
+      "boundingBox": {
+        "x": 1217,
+        "y": 582,
+        "width": 126,
+        "height": 51
+      },
+      "groundBounds": {
+        "x": 1217.0,
+        "y": 620.0,
+        "width": 126.0,
+        "height": 13.0
+      },
+      "layer": 1,
+      "visible": true,
+      "locked": false,
+      "description": "wooden bridge",
+      "metadata": {
+        "generatedAt": "2026-08-26T03:55:37.997Z"
+      },
+      "isProgress": false
+    },
+    {
+      "id": "d346da34-27de-41a2-9708-a9c8979410e4",
+      "name": "Object 0",
+      "filename": "d346da34-27de-41a2-9708-a9c8979410e4.png",
+      "boundingBox": {
+        "x": 1023,
+        "y": 433,
+        "width": 43,
+        "height": 75
+      },
+      "groundBounds": {
+        "x": 1062.0,
+        "y": 489.0,
+        "width": 4.0,
+        "height": 19.0
+      },
+      "layer": 2,
+      "visible": true,
+      "locked": false,
+      "description": "deck/pier",
+      "metadata": {
+        "generatedAt": "2026-08-26T04:12:16.181Z"
+      },
+      "isProgress": false
+    }
+  ]
+}

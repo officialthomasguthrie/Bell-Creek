@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bf1mu6821yxsp"
-path="res://.godot/imported/shack.png-793017ff724ded4da4e7cbb085dd22e6.ctex"
+uid="uid://bmqfvs26brlsk"
+path="res://.godot/imported/bus.png-e34c1f93005a0bc31b376ede0aa4b590.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/props/shack.png"
-dest_files=["res://.godot/imported/shack.png-793017ff724ded4da4e7cbb085dd22e6.ctex"]
+source_file="res://assets/sprites/props/bus.png"
+dest_files=["res://.godot/imported/bus.png-e34c1f93005a0bc31b376ede0aa4b590.ctex"]
 
 [params]
 

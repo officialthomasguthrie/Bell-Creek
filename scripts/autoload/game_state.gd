@@ -7,6 +7,7 @@ signal notice(text: String)
 var money: int = 0
 var capacity: int = 8
 var backpack: Array = []
+var has_ticket: bool = false
 
 func add_fish(fish: Resource) -> bool:
 	if backpack.size() >= capacity:
@@ -24,6 +25,14 @@ func sell_all() -> int:
 	inventory_changed.emit()
 	money_changed.emit(money)
 	return total
+
+func spend(amount: int) -> bool:
+	if money < amount:
+		return false
+	money -= amount
+	money_changed.emit(money)
+	return true
+
 
 func say(text: String) -> void:
 	notice.emit(text)

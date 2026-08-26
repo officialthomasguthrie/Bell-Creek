@@ -1,0 +1,102 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://bitv0o3u3s8lq"]
+
+[ext_resource type="Texture2D" uid="uid://dlae2ocxbw8b" path="res://assets/sprites/props/boat_sheet.png" id="1_sheet"]
+
+[sub_resource type="AtlasTexture" id="a2"]
+atlas = ExtResource("1_sheet")
+region = Rect2(96, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="a4"]
+atlas = ExtResource("1_sheet")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="a3"]
+atlas = ExtResource("1_sheet")
+region = Rect2(144, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="a5"]
+atlas = ExtResource("1_sheet")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="a0"]
+atlas = ExtResource("1_sheet")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="a1"]
+atlas = ExtResource("1_sheet")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="a7"]
+atlas = ExtResource("1_sheet")
+region = Rect2(336, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="a6"]
+atlas = ExtResource("1_sheet")
+region = Rect2(288, 0, 48, 48)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("a2")
+}],
+"loop": true,
+"name": &"east",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("a4")
+}],
+"loop": true,
+"name": &"north",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("a3")
+}],
+"loop": true,
+"name": &"north_east",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("a5")
+}],
+"loop": true,
+"name": &"north_west",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("a0")
+}],
+"loop": true,
+"name": &"south",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("a1")
+}],
+"loop": true,
+"name": &"south_east",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("a7")
+}],
+"loop": true,
+"name": &"south_west",
+"speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("a6")
+}],
+"loop": true,
+"name": &"west",
+"speed": 1.0
+}]
