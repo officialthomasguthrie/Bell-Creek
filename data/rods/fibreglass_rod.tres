@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="RodData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="RodData" load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/rod_data.gd" id="1_s"]
+[ext_resource type="Texture2D" path="res://assets/sprites/items/rod_fibreglass.png" id="2_icon"]
 
 [resource]
 script = ExtResource("1_s")
 display_name = "Fibreglass Rod"
 description = "Stiff fibreglass. Casts further and hooks faster."
 price = 420
-tier = 2
+tier = 1
 catch_zone = 1.4
 reel_power = 1.35
 bite_speed = 0.8
+icon = ExtResource("2_icon")

@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="LineData" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="LineData" load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/resources/line_data.gd" id="1_s"]
+[ext_resource type="Texture2D" path="res://assets/sprites/items/line_steel_leader.png" id="2_icon"]
 
 [resource]
 script = ExtResource("1_s")
@@ -10,3 +11,4 @@ price = 520
 tier = 2
 strength = 3.5
 steadiness = 0.78
+icon = ExtResource("2_icon")

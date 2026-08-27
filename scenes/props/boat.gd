@@ -49,6 +49,8 @@ func _physics_process(delta: float) -> void:
 	if not occupied:
 		return
 
+	AudioManager.set_paddle_speed(velocity.length() / max_speed)
+
 	if GameState.dialogue_open:
 		velocity = Vector2.ZERO
 		return
@@ -110,6 +112,7 @@ func _board(bodies: Array) -> void:
 		b.last_direction = facing
 		b.global_position = global_position + seat_offset
 		velocity = Vector2.ZERO
+		AudioManager.start_paddle()
 		GameState.say("Rowing  -  Space to fish, E near land to get out")
 		return
 
@@ -123,6 +126,7 @@ func _disembark() -> void:
 		return
 	occupied = false
 	velocity = Vector2.ZERO
+	AudioManager.stop_paddle()
 	_rider.riding = false
 	_rider.z_index = 0
 	_rider.get_node("CollisionShape2D").set_deferred("disabled", false)

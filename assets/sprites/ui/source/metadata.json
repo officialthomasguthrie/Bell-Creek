@@ -1,0 +1,100 @@
+{
+  "ui_assets": [
+    {
+      "id": "d516bfd9-b7e0-4d11-b3a3-2242bd9b0b6f",
+      "name": null,
+      "prompt": "Boardy fishing bog style",
+      "kind": "template",
+      "file": "Boardy_fishing_bog_style/Boardy_fishing_bog_style.png",
+      "size": {
+        "width": 256,
+        "height": 256
+      },
+      "group_id": "d516bfd9-b7e0-4d11-b3a3-2242bd9b0b6f"
+    },
+    {
+      "id": "8fd3f5f9-ba66-45a3-b681-b05185b11cc6",
+      "name": "element 1",
+      "prompt": "Boardy fishing bog style",
+      "kind": "element",
+      "file": "Boardy_fishing_bog_style/elements/element_1.png",
+      "size": {
+        "width": 64,
+        "height": 64
+      },
+      "group_id": "d516bfd9-b7e0-4d11-b3a3-2242bd9b0b6f"
+    },
+    {
+      "id": "952893a3-c766-4b62-a6b3-e0d78a04341c",
+      "name": "element 2",
+      "prompt": "Boardy fishing bog style",
+      "kind": "element",
+      "file": "Boardy_fishing_bog_style/elements/element_2.png",
+      "size": {
+        "width": 166,
+        "height": 22
+      },
+      "group_id": "d516bfd9-b7e0-4d11-b3a3-2242bd9b0b6f"
+    },
+    {
+      "id": "a57f847c-5a88-4c13-a68d-2dbd3043a959",
+      "name": "element 3",
+      "prompt": "Boardy fishing bog style",
+      "kind": "element",
+      "file": "Boardy_fishing_bog_style/elements/element_3.png",
+      "size": {
+        "width": 146,
+        "height": 170
+      },
+      "group_id": "d516bfd9-b7e0-4d11-b3a3-2242bd9b0b6f"
+    },
+    {
+      "id": "eea80935-db2a-463f-a599-c83e2bd0f42f",
+      "name": "Inventory",
+      "prompt": "Boardy fishing bog style",
+      "kind": "element",
+      "file": "Boardy_fishing_bog_style/elements/Inventory.png",
+      "size": {
+        "width": 86,
+        "height": 26
+      },
+      "group_id": "d516bfd9-b7e0-4d11-b3a3-2242bd9b0b6f"
+    },
+    {
+      "id": "9ae686f5-4a59-4d13-a205-aa9dc9b25ce6",
+      "name": "Map",
+      "prompt": "Boardy fishing bog style",
+      "kind": "element",
+      "file": "Boardy_fishing_bog_style/elements/Map.png",
+      "size": {
+        "width": 86,
+        "height": 26
+      },
+      "group_id": "d516bfd9-b7e0-4d11-b3a3-2242bd9b0b6f"
+    },
+    {
+      "id": "82e0a7e3-4f00-4dca-9e3c-30abd9cb73db",
+      "name": "Quit",
+      "prompt": "Boardy fishing bog style",
+      "kind": "element",
+      "file": "Boardy_fishing_bog_style/elements/Quit.png",
+      "size": {
+        "width": 86,
+        "height": 26
+      },
+      "group_id": "d516bfd9-b7e0-4d11-b3a3-2242bd9b0b6f"
+    },
+    {
+      "id": "78fdad6f-d01d-46eb-87d8-9e18881b05e4",
+      "name": "Health bar",
+      "prompt": "Boardy fishing bog style",
+      "kind": "element",
+      "file": "Boardy_fishing_bog_style/elements/Health_bar.png",
+      "size": {
+        "width": 166,
+        "height": 22
+      },
+      "group_id": "d516bfd9-b7e0-4d11-b3a3-2242bd9b0b6f"
+    }
+  ]
+}

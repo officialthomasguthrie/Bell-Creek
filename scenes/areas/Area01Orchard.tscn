@@ -15,6 +15,7 @@
 [ext_resource type="Script" path="res://scenes/props/boat.gd" id="12_shp63"]
 [ext_resource type="PackedScene" path="res://scenes/props/BusDriver.tscn" id="13_t0e6m"]
 [ext_resource type="PackedScene" path="res://scenes/props/ShackSign.tscn" id="14_sign"]
+[ext_resource type="Script" path="res://scenes/props/surface_zone.gd" id="15_surf"]
 [ext_resource type="Script" path="res://scenes/props/bus_driver.gd" id="14_t0e6m"]
 [ext_resource type="PackedScene" path="res://scenes/enemies/Seagull.tscn" id="16_6ipm4"]
 [ext_resource type="Script" path="res://scenes/enemies/seagull.gd" id="17_hklpa"]
@@ -40,6 +41,9 @@ size = Vector2(137, 4)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_shp63"]
 size = Vector2(4, 75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bridge"]
+size = Vector2(137, 51)
 
 [node name="Area01Orchard" type="Node2D" unique_id=848038909]
 y_sort_enabled = true
@@ -173,6 +177,16 @@ shape = SubResource("RectangleShape2D_5yunc")
 [node name="WallRight" type="CollisionShape2D" parent="Walls" unique_id=1350825539]
 position = Vector2(2064, 640)
 shape = SubResource("RectangleShape2D_j4722")
+
+[node name="SurfaceZones" type="Node2D" parent="."]
+
+[node name="BridgeDeck" type="Area2D" parent="SurfaceZones"]
+position = Vector2(1358, 640.5)
+script = ExtResource("15_surf")
+surface = &"wood"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SurfaceZones/BridgeDeck"]
+shape = SubResource("RectangleShape2D_bridge")
 
 [node name="ObjectRails" type="StaticBody2D" parent="." unique_id=1646581535]
 

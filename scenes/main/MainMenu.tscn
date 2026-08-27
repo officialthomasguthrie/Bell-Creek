@@ -1,0 +1,142 @@
+[gd_scene load_steps=6 format=3]
+
+[ext_resource type="Script" path="res://scenes/main/main_menu.gd" id="1_menu"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/menu_backdrop.png" id="2_back"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/board.png" id="3_board"]
+[ext_resource type="PackedScene" path="res://scenes/ui/PlankButton.tscn" id="4_plank"]
+[ext_resource type="PackedScene" path="res://scenes/ui/MenuOptionRow.tscn" id="5_row"]
+
+[node name="MainMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_menu")
+
+[node name="Backdrop" type="TextureRect" parent="."]
+offset_left = -80.0
+offset_top = -45.0
+offset_right = 720.0
+offset_bottom = 405.0
+mouse_filter = 2
+texture = ExtResource("2_back")
+
+[node name="Dim" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.043, 0.067, 0.063, 0.3)
+
+[node name="Title" type="Label" parent="."]
+anchor_right = 1.0
+offset_top = 46.0
+offset_bottom = 98.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.976, 0.918, 0.788, 1)
+theme_override_colors/font_outline_color = Color(0.055, 0.043, 0.035, 0.94)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.55)
+theme_override_constants/outline_size = 8
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 3
+theme_override_font_sizes/font_size = 34
+text = "BELL CREEK"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Board" type="NinePatchRect" parent="."]
+offset_left = 247.0
+offset_top = 144.0
+offset_right = 393.0
+offset_bottom = 314.0
+mouse_filter = 2
+texture = ExtResource("3_board")
+patch_margin_left = 30
+patch_margin_top = 32
+patch_margin_right = 30
+patch_margin_bottom = 32
+
+[node name="Buttons" type="VBoxContainer" parent="Board"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 32.0
+offset_right = -30.0
+offset_bottom = -32.0
+mouse_filter = 2
+theme_override_constants/separation = 14
+
+[node name="Play" parent="Board/Buttons" instance=ExtResource("4_plank")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Quit")
+focus_neighbor_bottom = NodePath("../Options")
+text = "PLAY"
+
+[node name="Options" parent="Board/Buttons" instance=ExtResource("4_plank")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Play")
+focus_neighbor_bottom = NodePath("../Quit")
+text = "OPTIONS"
+
+[node name="Quit" parent="Board/Buttons" instance=ExtResource("4_plank")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Options")
+focus_neighbor_bottom = NodePath("../Play")
+text = "QUIT"
+
+[node name="OptionsBoard" type="NinePatchRect" parent="."]
+visible = false
+offset_left = 180.0
+offset_top = 108.0
+offset_right = 460.0
+offset_bottom = 314.0
+mouse_filter = 2
+texture = ExtResource("3_board")
+patch_margin_left = 30
+patch_margin_top = 32
+patch_margin_right = 30
+patch_margin_bottom = 32
+
+[node name="Rows" type="VBoxContainer" parent="OptionsBoard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = 34.0
+offset_right = -30.0
+offset_bottom = -34.0
+mouse_filter = 2
+theme_override_constants/separation = 7
+
+[node name="Heading" type="Label" parent="OptionsBoard/Rows"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_colors/font_color = Color(0.976, 0.918, 0.788, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.5)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 1
+theme_override_font_sizes/font_size = 12
+text = "OPTIONS"
+horizontal_alignment = 1
+
+[node name="Music" parent="OptionsBoard/Rows" instance=ExtResource("5_row")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Back")
+focus_neighbor_bottom = NodePath("../Sound")
+label_text = "Music"
+
+[node name="Sound" parent="OptionsBoard/Rows" instance=ExtResource("5_row")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Music")
+focus_neighbor_bottom = NodePath("../Fullscreen")
+label_text = "Sound"
+
+[node name="Fullscreen" parent="OptionsBoard/Rows" instance=ExtResource("5_row")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Sound")
+focus_neighbor_bottom = NodePath("../Back")
+kind = 1
+label_text = "Fullscreen"
+
+[node name="Back" parent="OptionsBoard/Rows" instance=ExtResource("4_plank")]
+layout_mode = 2
+size_flags_horizontal = 4
+focus_neighbor_top = NodePath("../Fullscreen")
+focus_neighbor_bottom = NodePath("../Music")
+text = "BACK"

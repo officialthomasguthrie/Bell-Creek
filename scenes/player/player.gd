@@ -14,6 +14,7 @@ var last_direction: Vector2 = Vector2.DOWN
 
 var _step_cooldown := 0.0
 var _surface: StringName = &""
+var _zone_surfaces: Array[StringName] = []
 
 
 func _ready() -> void:
@@ -110,7 +111,20 @@ func _on_frame_changed() -> void:
 	_step_cooldown = 0.09
 
 
+## Pushed by SurfaceZone areas laid over the ground, e.g. the bridge decking.
+func push_surface(surface: StringName) -> void:
+	_zone_surfaces.append(surface)
+
+
+func pop_surface(surface: StringName) -> void:
+	var i := _zone_surfaces.rfind(surface)
+	if i != -1:
+		_zone_surfaces.remove_at(i)
+
+
 func _current_surface() -> StringName:
+	if not _zone_surfaces.is_empty():
+		return _zone_surfaces[-1]
 	if _surface != &"":
 		return _surface
 	_surface = &"grass"

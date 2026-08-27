@@ -59,6 +59,7 @@ text = "$0"
 theme_override_constants/separation = 4
 
 [node name="Body" type="HBoxContainer" parent="Root/Centre/Panel/Margin/Rows"]
+custom_minimum_size = Vector2(0, 117)
 size_flags_vertical = 6
 theme_override_constants/separation = 6
 
@@ -105,7 +106,9 @@ theme_override_font_sizes/font_size = 8
 autowrap_mode = 3
 
 [node name="Stats" type="Label" parent="Root/Centre/Panel/Margin/Rows/Body/Detail"]
-custom_minimum_size = Vector2(198, 34)
+custom_minimum_size = Vector2(198, 42)
+max_lines_visible = 3
+clip_text = true
 theme_override_colors/font_color = Color(0.74, 0.8, 0.76, 1)
 theme_override_font_sizes/font_size = 8
 

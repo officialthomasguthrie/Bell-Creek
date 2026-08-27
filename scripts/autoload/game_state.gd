@@ -6,7 +6,7 @@ signal gear_changed()
 signal notice(text: String)
 signal effects_changed()
 
-const STARTER_ROD := "res://data/rods/grandpas_stick.tres"
+const STARTER_ROD := "res://data/rods/bamboo_rod.tres"
 const STARTER_LINE := "res://data/lines/frayed_twine.tres"
 
 var money: int = 0

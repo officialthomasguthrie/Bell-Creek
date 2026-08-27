@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Bell Creek"
-run/main_scene="res://scenes/areas/Area01Orchard.tscn"
+run/main_scene="res://scenes/main/MainMenu.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 run/max_fps=60
 config/icon="res://icon.svg"
@@ -22,6 +22,7 @@ GameState="*uid://br2fthb12wvhg"
 SaveSystem="*uid://bwdbg8e4p42ou"
 SceneLoader="*uid://d314udmvo5vgy"
 AudioManager="*uid://bq74qlsde4u2j"
+Settings="*res://scripts/autoload/settings.gd"
 
 [display]
 

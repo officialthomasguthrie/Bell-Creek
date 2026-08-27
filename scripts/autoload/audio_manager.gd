@@ -1,5 +1,7 @@
 extends Node
 
+const SILENT_DB := -60.0
+
 const TRACKS := [
 	{"file": "ambient_01.mp3", "title": "Ethereal Reverie",   "gain":  0.1},
 	{"file": "ambient_02.mp3", "title": "Serenity's Embrace", "gain": -0.7},
@@ -19,6 +21,7 @@ const WATER_SPLASH := preload("res://assets/audio/sfx/water_splash.wav")
 const REEL_TURN := preload("res://assets/audio/sfx/reel_turn.wav")
 const ROD_DROP := preload("res://assets/audio/sfx/rod_drop.wav")
 const WATER_LOOP := preload("res://assets/audio/sfx/water_loop.wav")
+const PADDLE_LOOP := preload("res://assets/audio/sfx/paddle_loop.wav")
 
 ## Footstep banks keyed by surface. Every clip is loudness-matched to the others,
 ## so the surfaces stay level with each other and only the material changes.
@@ -49,20 +52,31 @@ const STEPS := {
 
 @export var music_db: float = -9.0
 @export var line_snap_db: float = -6.0
-@export var walk_step_db: float = -18.0
-@export var run_step_db: float = -14.0
+@export var walk_step_db: float = -14.8
+@export var run_step_db: float = -12.1
+## Per-surface trim on top of the walk/run levels. Every step clip is matched to the
+## same K-weighted loudness, so this is purely a taste control: wood is lifted so the
+## boards read louder than the grass rather than merely equal to it.
+@export var surface_trim: Dictionary = {&"grass": 0.0, &"wood": 3.0}
 @export var cast_whoosh_db: float = -14.0
 @export var water_splash_db: float = -12.0
 @export var reel_turn_db: float = -16.0
 @export var rod_drop_db: float = -10.0
 @export var water_loop_db: float = -7.0
 @export var water_fade: float = 0.6
+## Level of the paddle bed at full rowing speed; it drops away as the boat slows.
+@export var paddle_db: float = -13.0
+@export var paddle_quiet_db: float = -12.0
+@export var paddle_fade: float = 0.30
 @export var fade_in: float = 2.5
 @export var gap: float = 1.5
 
 var _music: AudioStreamPlayer
 var _water: AudioStreamPlayer
 var _water_tween: Tween
+var _paddle: AudioStreamPlayer
+var _paddle_target := SILENT_DB
+var _paddle_rowing := false
 var _sfx: Array[AudioStreamPlayer] = []
 var _order: Array = []
 var _at: int = 0
@@ -82,10 +96,16 @@ func _ready() -> void:
 	_water.bus = "SFX"
 	_water.stream = WATER_LOOP
 	add_child(_water)
+	_paddle = AudioStreamPlayer.new()
+	_paddle.bus = "SFX"
+	_paddle.stream = PADDLE_LOOP
+	_paddle.volume_db = SILENT_DB
+	add_child(_paddle)
 	_reshuffle()
 	_play_current()
 
 func _process(delta: float) -> void:
+	_update_paddle(delta)
 	if _waiting <= 0.0:
 		return
 	_waiting -= delta
@@ -117,7 +137,8 @@ func play_footstep(running: bool, surface: StringName = &"grass") -> void:
 	if clips.is_empty():
 		return
 	var pitch := randf_range(0.94, 1.06) if running else randf_range(0.92, 1.08)
-	play_sfx(clips[randi() % clips.size()], pitch, run_step_db if running else walk_step_db)
+	var level: float = run_step_db if running else walk_step_db
+	play_sfx(clips[randi() % clips.size()], pitch, level + float(surface_trim.get(surface, 0.0)))
 
 
 func play_cast_whoosh() -> void:
@@ -155,6 +176,42 @@ func stop_water_loop() -> void:
 	_water_tween = create_tween()
 	_water_tween.tween_property(_water, "volume_db", water_loop_db - 24.0, water_fade)
 	_water_tween.tween_callback(_water.stop)
+
+
+## Called every frame while the boat is crewed. `speed_ratio` is 0 at a standstill
+## and 1 at full rowing speed, so the bed swells and dies with the paddling.
+func start_paddle() -> void:
+	if _paddle == null or _paddle.playing:
+		return
+	_paddle_rowing = true
+	_paddle.volume_db = SILENT_DB
+	_paddle.play()
+
+
+func set_paddle_speed(speed_ratio: float) -> void:
+	if not _paddle_rowing:
+		return
+	var t := clampf(speed_ratio, 0.0, 1.0)
+	if t < 0.06:
+		_paddle_target = SILENT_DB
+	else:
+		_paddle_target = paddle_db + lerpf(paddle_quiet_db, 0.0, t)
+	_paddle.pitch_scale = lerpf(0.96, 1.04, t)
+
+
+func stop_paddle() -> void:
+	_paddle_rowing = false
+	_paddle_target = SILENT_DB
+
+
+func _update_paddle(delta: float) -> void:
+	if _paddle == null or not _paddle.playing:
+		return
+	var k := 1.0 - exp(-delta / maxf(paddle_fade, 0.01))
+	_paddle.volume_db = lerpf(_paddle.volume_db, _paddle_target, k)
+	if not _paddle_rowing and _paddle.volume_db < SILENT_DB + 12.0:
+		_paddle.stop()
+		_paddle.volume_db = SILENT_DB
 
 
 func _kill_water_tween() -> void:

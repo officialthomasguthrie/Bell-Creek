@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="RodData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/resources/rod_data.gd" id="1_s"]
+[ext_resource type="Texture2D" path="res://assets/sprites/items/rod_crimson.png" id="2_icon"]
+
+[resource]
+script = ExtResource("1_s")
+display_name = "Crimson Rod"
+description = "Red lacquer and gold fittings. The best one they sell."
+price = 2500
+tier = 3
+catch_zone = 2.0
+reel_power = 2.0
+bite_speed = 0.5
+icon = ExtResource("2_icon")
