@@ -10,6 +10,7 @@ const DIRECTION_NAMES := ["east", "south_east", "south", "south_west", "west", "
 
 var occupied: bool = false
 var facing: Vector2 = Vector2.UP
+var remote_hold: float = 0.0
 
 var _rider: Node2D = null
 var _layer: TileMapLayer = null
@@ -46,6 +47,7 @@ func _unhandled_input(event: InputEvent) -> void:
 		_board(zone.get_overlapping_bodies())
 
 func _physics_process(delta: float) -> void:
+	remote_hold = maxf(remote_hold - delta, 0.0)
 	if not occupied:
 		return
 
@@ -101,6 +103,9 @@ func _refresh_sprite() -> void:
 		sprite.play(anim)
 
 func _board(bodies: Array) -> void:
+	if remote_hold > 0.0:
+		GameState.say("Someone els is rowing it")
+		return
 	for b in bodies:
 		if b.name != "Player":
 			continue

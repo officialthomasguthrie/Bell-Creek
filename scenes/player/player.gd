@@ -8,6 +8,8 @@ const DIRECTION_NAMES := ["east", "south_east", "south", "south_west", "west", "
 var can_move: bool = true
 var riding: bool = false
 var last_direction: Vector2 = Vector2.DOWN
+var remote: bool = false
+var net_target: Vector2 = Vector2.ZERO
 
 @onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var fishing: Node2D = $FishingComponent
@@ -18,11 +20,17 @@ var _zone_surfaces: Array[StringName] = []
 
 
 func _ready() -> void:
+	if remote:
+		# ghosts dont need a camara or a hitbox
+		$Camera2D.enabled = false
+		collision_layer = 0
+		collision_mask = 0
+		return
 	sprite.frame_changed.connect(_on_frame_changed)
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if GameState.dialogue_open:
+	if remote or GameState.dialogue_open:
 		return
 	if event.is_action_pressed("cast"):
 		fishing.on_cast_pressed()
@@ -31,6 +39,10 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if remote:
+		global_position = global_position.lerp(net_target, minf(delta * 14.0, 1.0))
+		return
+
 	_step_cooldown = maxf(_step_cooldown - delta, 0.0)
 	can_move = not fishing.is_busy() and not riding and not GameState.dialogue_open
 
