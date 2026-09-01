@@ -23,6 +23,7 @@ SaveSystem="*uid://bwdbg8e4p42ou"
 SceneLoader="*uid://d314udmvo5vgy"
 AudioManager="*uid://bq74qlsde4u2j"
 Settings="*res://scripts/autoload/settings.gd"
+Net="*res://scripts/autoload/net.gd"
 
 [display]
 
