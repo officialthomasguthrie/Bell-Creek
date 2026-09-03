@@ -38,4 +38,5 @@ func _unhandled_input(event: InputEvent) -> void:
 				GameState.say("Nothing to cash in")
 				return
 			var earned := GameState.sell_all()
+			AudioManager.play_kaching()
 			GameState.say("Sold %d fish for $%d" % [count, earned])

@@ -20,6 +20,7 @@ const CAST_WHOOSH := preload("res://assets/audio/sfx/cast_whoosh.wav")
 const WATER_SPLASH := preload("res://assets/audio/sfx/water_splash.wav")
 const REEL_TURN := preload("res://assets/audio/sfx/reel_turn.wav")
 const ROD_DROP := preload("res://assets/audio/sfx/rod_drop.wav")
+const KACHING := preload("res://assets/audio/sfx/kaching.wav")
 const WATER_LOOP := preload("res://assets/audio/sfx/water_loop.wav")
 const PADDLE_LOOP := preload("res://assets/audio/sfx/paddle_loop.wav")
 
@@ -62,6 +63,7 @@ const STEPS := {
 @export var water_splash_db: float = -12.0
 @export var reel_turn_db: float = -16.0
 @export var rod_drop_db: float = -10.0
+@export var kaching_db: float = -4.0
 @export var water_loop_db: float = -7.0
 @export var water_fade: float = 0.6
 ## Level of the paddle bed at full rowing speed; it drops away as the boat slows.
@@ -157,6 +159,10 @@ func play_rod_drop(delay: float = 0.0) -> void:
 	if delay > 0.0:
 		await get_tree().create_timer(delay).timeout
 	play_sfx(ROD_DROP, randf_range(0.97, 1.03), rod_drop_db)
+
+
+func play_kaching() -> void:
+	play_sfx(KACHING, randf_range(0.98, 1.02), kaching_db)
 
 
 func start_water_loop() -> void:

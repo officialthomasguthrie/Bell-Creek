@@ -102,6 +102,14 @@ func sell_all() -> int:
 	money_changed.emit(money)
 	return total
 
+## Straight payout with no item attached, e.g. the driver's ticket-clip prize.
+func award(amount: int) -> void:
+	if amount <= 0:
+		return
+	money += amount
+	money_changed.emit(money)
+
+
 func spend(amount: int) -> bool:
 	if money < amount:
 		return false
