@@ -26,10 +26,14 @@ var _swap_tween: Tween
 
 var coop_button: TextureButton
 var coop_board: NinePatchRect
-var ip_edit: LineEdit
+var code_edit: LineEdit
+var code_label: Label
+var found_box: VBoxContainer
 var host_button: TextureButton
 var join_button: TextureButton
 var coop_back: TextureButton
+
+var _listed: Array = []
 
 func _ready() -> void:
 	GameState.dialogue_open = false
@@ -75,11 +79,16 @@ func _build_coop() -> void:
 		rows.remove_child(c)
 		c.queue_free()
 
-	ip_edit = LineEdit.new()
-	ip_edit.text = "127.0.0.1"
-	ip_edit.alignment = HORIZONTAL_ALIGNMENT_CENTER
-	ip_edit.add_theme_font_size_override("font_size", 8)
-	rows.add_child(ip_edit)
+	code_label = rows.get_node("Heading").duplicate()
+	rows.add_child(code_label)
+	found_box = VBoxContainer.new()
+	rows.add_child(found_box)
+
+	code_edit = LineEdit.new()
+	code_edit.placeholder_text = "CODE"
+	code_edit.alignment = HORIZONTAL_ALIGNMENT_CENTER
+	code_edit.add_theme_font_size_override("font_size", 8)
+	rows.add_child(code_edit)
 
 	host_button = _plank("HOST")
 	join_button = _plank("JOIN")
@@ -100,11 +109,40 @@ func _plank(caption: String) -> TextureButton:
 	return b
 
 
-# host, or dial out to whatevers in the ip box
+# host, or dial out to whatevers in the code box
 func _dial(serving: bool) -> void:
-	var ok := Net.host() if serving else Net.join(ip_edit.text.strip_edges())
-	if ok:
-		_start_game()
+	var ok := Net.host() if serving else Net.join(Net.ip_from(code_edit.text))
+	if not ok:
+		return
+	Net.browse(false)
+	if serving:
+		Net.shout()
+	_start_game()
+
+
+func _pick(ip: String) -> void:
+	if not Net.join(ip):
+		return
+	Net.browse(false)
+	_start_game()
+
+
+# redraw the list of games we can see on the wifi
+func _process(_delta: float) -> void:
+	if not _on_coop:
+		return
+	var ips: Array = Net.found.keys()
+	ips.sort()
+	if ips == _listed:
+		return
+	_listed = ips
+	for c in found_box.get_children():
+		found_box.remove_child(c)
+		c.queue_free()
+	for ip in ips:
+		var b := _plank(Net.code_for(ip))
+		found_box.add_child(b)
+		b.pressed.connect(func(): _pick(ip))
 
 
 func _drift() -> void:
@@ -147,7 +185,7 @@ func _step_focus(step: int) -> void:
 
 func _page_items() -> Array:
 	if _on_coop:
-		return [host_button, join_button, coop_back]
+		return found_box.get_children() + [host_button, join_button, coop_back]
 	if _on_options:
 		return [music_row, sound_row, fullscreen_row, back_button]
 	var items: Array = [play_button, coop_button, options_button]
@@ -168,12 +206,15 @@ func _close_options() -> void:
 
 func _open_coop() -> void:
 	_on_coop = true
+	code_label.text = "YOUR CODE  " + Net.my_code()
+	Net.browse(true)
 	_swap(board, coop_board)
 	host_button.grab_focus()
 
 
 func _close_coop() -> void:
 	_on_coop = false
+	Net.browse(false)
 	_swap(coop_board, board)
 	coop_button.grab_focus()
 

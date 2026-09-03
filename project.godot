@@ -34,6 +34,10 @@ window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/scale_mode="integer"
 
+[dotnet]
+
+project/assembly_name="Bell Creek"
+
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/pixellab_stack_paint/plugin.cfg")
